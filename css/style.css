@@ -1,0 +1,84 @@
+@import "reset.css";
+
+@font-face {
+  src: url(../font/AvenirNextRegular.ttf);
+  font-family: "Avenir_Next";
+  font-weight: normal;
+}
+@font-face {
+  src: url(../font/AvenirNextBold.ttf);
+  font-family: "Avenir_Next";
+  font-weight: bold;
+}
+
+.page {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: white;
+  font-family: "Avenir_Next", "Helvetica Neue", Arial, sans-serif;
+  font-weight: normal;
+}
+.logo {
+  width: calc(243px*.8);
+  height: calc(188px*.8);
+  background-image: url(../img/logo.png);
+  background-size: contain;
+  position: absolute;
+  margin: 20px;
+  z-index: 3;
+}
+.slogan {
+  width: 100vw;
+}
+video {
+  width: 100vw;
+  position: absolute;
+  z-index: 1;
+}
+.nav {
+  min-width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+}
+li {
+
+  margin: 40px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.slogan {
+  height: 800px;
+  position: relative;
+}
+.greenish {
+  width: 100vw;
+  height: 60vw;
+  background-color: #d2d942;
+  position: absolute;
+  opacity: 0.3;
+  z-index: 2;
+
+}
+.footerColumn {
+  width: 30%;
+  display: inline-flex;
+  flex-direction: row;
+
+}
+.mySlogan {
+  font-family: 'Avenir_Next', sans-serif;
+  font-size: 48px;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: inherit;
+  z-index: 1;
+}
