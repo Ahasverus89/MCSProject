@@ -1,5 +1,7 @@
 @import "reset.css";
 
+/* шрифт оказался без кириллицы,
+а с кириллицей он  - платный и стоит дохрена
 @font-face {
   src: url(../font/AvenirNextRegular.ttf);
   font-family: "Avenir_Next";
@@ -10,75 +12,378 @@
   font-family: "Avenir_Next";
   font-weight: bold;
 }
+*/
+
+html {
+  font-size: 10px; /*задал размер 1rem, чтобы для экрана iphone в @media
+  не прописывать все шрифты, а просто поменять размер 1rem
+  (почти все шрифты по коду задал в remах)*/
+}
 
 .page {
   width: 100vw;
+  min-width: 320px; /*ширина iPhone4*/
   min-height: 100vh;
   background-color: white;
   font-family: "Avenir_Next", "Helvetica Neue", Arial, sans-serif;
   font-weight: normal;
 }
+
 .logo {
-  width: calc(243px*.8);
-  height: calc(188px*.8);
+  width: 200px;
+  height: 150px;
   background-image: url(../img/logo.png);
   background-size: contain;
+  background-repeat: no-repeat;
   position: absolute;
   margin: 20px;
-  z-index: 3;
+  z-index: 4;
 }
+
+header {
+  position: relative;
+  width: 100vw;
+  height: 135px;
+}
+
+.nav {
+  margin-left: 200px; /*это - отступ для логотипа*/
+  width: calc(100vw - 200px); /*здесь делаю размер nav - экран минус отступ для логотипа*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.hLink {
+  margin-top: 70px;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.6rem;
+}
+
 .slogan {
   width: 100vw;
+  height: calc(100vw*.5625);
+  /* здесь привязываю высоту окна для видео к его ширине.
+  Разрешение этого видео: 3840 × 2160,
+  т.е. высота составляет 56,25% его ширины */
+  position: relative;
 }
+
 video {
   width: 100vw;
   position: absolute;
   z-index: 1;
 }
-.nav {
-  min-width: 300px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
 
-}
-li {
-
-  margin: 40px;
-}
-a {
-  text-decoration: none;
-  color: black;
-}
-.slogan {
-  height: 800px;
-  position: relative;
-}
 .greenish {
+  /*это зеленоватый полупрозрачный прямоугольник,
+  чтобы у видео был зеленоватый оттенок (как у всего сайта) и
+  белые буквы поверх видео было видно*/
   width: 100vw;
-  height: 60vw;
+  height: calc(100vw*.5625); /* задаю такие же параметры как у видео */
   background-color: #d2d942;
-  position: absolute;
+  position: relative;
   opacity: 0.3;
   z-index: 2;
-
 }
-.footerColumn {
-  width: 30%;
-  display: inline-flex;
-  flex-direction: row;
 
-}
 .mySlogan {
-  font-family: 'Avenir_Next', sans-serif;
-  font-size: 48px;
   color: white;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 7vw;
+  /* привязал размер шрифта к ширине видео,
+  чтобы надпиь на нем смотрелась всегда одинакого*/
+  text-align: center;
+  font-weight: normal;
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.right {
+  text-align: right;
+  margin: 2rem;
+}
+
+.left {
+  text-align: left;
+  margin: 2rem;
+}
+
+.mySection {
   width: 100vw;
-  height: inherit;
-  z-index: 1;
+  min-height: 300px;
+  font-size: 1.8rem;
+  position: relative;
+  background-color: lightgrey;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  position: relative;
+  width: calc(100vw - 300px - 6rem); /* экран минус ширина bigPic и отступа)*/
+  height: 300px;
+  background-color: #85D927;
+  color: white;
+  margin: auto;
+}
+
+.text p {
+  margin: 2rem;
+  line-height: 2.4rem;
+  text-align: center;
+}
+
+.bigPic {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.firstPic {
+  background-image: url(../img/800_800/recovery.jpg);
+  margin-right: 2rem;
+}
+.secondPic {
+  background-image: url(../img/800_800/flex.jpg);
+  margin-left: 2rem;
+}
+.thirdPic {
+  background-image: url(../img/800_800/activator.jpg);
+  margin-right: 2rem;
+}
+
+.columns {
+  min-height: 200px;
+  width: 100vw;
+  position: relative;
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.More {
+  height: 70px;
+  width: 160px;
+  background-color: grey;
+  border: 3px solid darkgrey;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+  display: flex;
+}
+
+.More p {
+ margin: auto;
+}
+
+.More:hover {
+  background-color: white;
+  color: grey;
+}
+
+.Protection {
+order: 1;
+/* задал порядок элементов в этой строке, тк хочу,
+чтобы "More" здесь был слева. Можно было просто расставить в нужном порядке блоки в html.
+Но тогда возникала проблема с расположением блоков в @media - "More"
+оказывался сверху и это было некрасиво */
+}
+
+.smallPic {
+  height: 180px;
+  width: 180px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.One {
+  background-image: url(../img/800_800/isodrink.jpg);
+}
+.Two {
+  background-image: url(../img/800_800/multi.jpg);
+}
+.Three {
+  background-image: url(../img/800_800/isotonic.jpg);
+}
+.Four {
+  background-image: url(../img/800_800/coq10.jpg);
+  order: 2;
+}
+.Five {
+  background-image: url(../img/800_800/alcar.jpg);
+  order: 3;
+}
+.Six {
+  background-image: url(../img/800_800/magnesium.jpg);
+  order: 4;
+}
+.Seven {
+  background-image: url(../img/800_800/mental.jpg);
+}
+.Eight {
+  background-image: url(../img/800_800/guarana.jpg);
+}
+.Nine {
+  background-image: url(../img/800_800/gel.jpg);
+}
+
+footer {
+  min-height: 200px;
+  width: 100vw;
+  background-color: #525252;
+  color: white;
+}
+
+.footerColumns {
+  width: calc(100vw - 40px);
+  padding: 20px 20px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+}
+
+footer h3 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.footerColumns a {
+  color: white;
+}
+
+.social img {
+  margin-top: 1rem;
+  height: 33px;
+  width: 33px;
+}
+
+footer p {
+  text-align: left;
+  font-size: 1.4rem;
+  margin-left: 2rem;
+}
+
+@media (max-width: 840px){
+html {
+font-size: 9.5px;
+}
+}
+
+@media (max-width: 740px){
+html {
+font-size: 9px;
+}
+}
+
+@media (max-width: 710px){
+html {
+font-size: 8.5px;
+}
+}
+
+@media (max-width: 680px){
+.logo {
+  width: 150px;
+  height: 100px;
+  margin: 10px;
+}
+header {
+  width: 100vw;
+  height: 90px;
+}
+.nav {
+  margin-left: 150px;
+  width: calc(100vw - 150px);
+}
+.hLink {
+  margin-top: 40px;
+  font-weight: bold;
+}
+.mySection {
+  display: flex;
+  flex-direction: column;
+}
+
+.secondSection {
+  flex-direction: column-reverse;
+}
+
+.bigPic {
+margin: auto;
+}
+
+.text {
+width: 100vw;
+height: auto;
+font-size: 15px;
+margin: auto;
+}
+
+.text p {
+margin: auto;
+padding-bottom: 2rem;
+}
+
+.first {
+padding-top: 2rem;
+}
+
+.columns {
+  display: block;
+}
+
+.One, .Two, .Three, .Four, .Five, .Six, .Seven, .Eight, .Nine {
+  display: inline-block;
+  width: 32%;
+
+}
+.More {
+  height: 40px;
+  width: 80vw;
+  margin: 2rem auto;
+}
+
+@media (max-width: 510px) {
+  .nav {
+    flex-direction: column;
+  }
+  .hLink {
+    margin-top: 7px;
+    text-align: center; /** хорошо бы сделать выпадающим списком*/
+  }
+  footer {
+    min-height: 400px;
+  }
+  .footerColumns {
+    display: block;
+  }
+  footer h3 {
+    margin-top: 1.5rem;
+    margin-bottom: .3rem;
+    text-align: left;
+  }
 }
